@@ -8,11 +8,14 @@ Clone the project, navigate to the directory - <code>cd directoryname </code> - 
 for Mac or Linux
 
 The rules are the same as the classic game:
+
 1. Paper covers Rock
+
 2. Scissors cuts Pater
+
 3. Rock smashes Scissors
 
-Choose your weapo wisely!
+**_Choose your weapon wisely!_**
 
 The comuter chooses first; just follow the prompts
 Built with [Pyton 3.](https://www.python.org/download/releases/3.0)
