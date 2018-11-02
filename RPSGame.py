@@ -12,7 +12,7 @@ computer = choices[randint(0, 2)]
 
 
 # define a win or lose function instead of the procedural way
-def winorlose(status):
+def winerlose(status):
     # handle win or lose based on the status we pass in
     print("Called the win or lose function")
     print("***********************************")
