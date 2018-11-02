@@ -1,7 +1,7 @@
 from random import randint
 
 # variables for counting and taking lifes
-# 3 LIFES FOR EACH AT THE BEGINNING
+# 3 LIVES FOR EACH AT THE BEGINNING
 player_wins = 3
 computer_wins = 3
 
@@ -31,42 +31,42 @@ while player is False:
         if computer == "Paper":
             print("You lose", computer, "covers", player)
             computer_wins += 1
-            print("Computer lifes left", computer_wins)
+            print("Computer lives left", computer_wins)
             player_wins -= 1
-            print("Your lifes left", player_wins)
+            print("Your lives left", player_wins)
         else:
             print("You win!", player, "smashes", computer)
             player_wins += 1
-            print("Your lifes left", player_wins)
+            print("Your lives left", player_wins)
             computer_wins -= 1
-            print("Computer lifes left", computer_wins)
+            print("Computer lives left", computer_wins)
 
     elif player == "Paper":
         if computer == "Scissors":
             print("You lose!", computer, "cuts", player)
             computer_wins += 1
-            print("Computer lifes left", computer_wins)
+            print("Computer lives left", computer_wins)
             player_wins -= 1
-            print("Your lifes left", player_wins)
+            print("Your lives left", player_wins)
         else:
             print("You win!", player, "covers", computer)
             player_wins += 1
-            print("Your lifes left", player_wins)
+            print("Your lives left", player_wins)
             computer_wins -= 1
-            print("Computer lifes left", computer_wins)
+            print("Computer lives left", computer_wins)
     elif player == "Scissors":
         if computer == "Rock":
             print("You lose!", computer, "smashes", player)
             computer_wins += 1
-            print("Computer lifes left", computer_wins)
+            print("Computer lives left", computer_wins)
             player_wins -= 1
-            print("Your lifes left", player_wins)
+            print("Your lives left", player_wins)
         else:
             print("You win!", player, "cuts", computer)
             player_wins += 1
-            print("Your lifes left", player_wins)
+            print("Your lives left", player_wins)
             computer_wins -= 1
-            print("Computer lifes left", computer_wins)
+            print("Computer lives left", computer_wins)
 
     elif player == "Quit":
         exit()
