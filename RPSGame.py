@@ -1,82 +1,114 @@
 from random import randint
 
-# variables for counting and taking lifes
-# 3 LIFES FOR EACH AT THE BEGINNING
-player_wins = 3
-computer_wins = 3
+player_lives = 5
+computer_lives = 5
 
-# available weapons => sore this an array
+# available weapons => store this in an array
 choices = ["Rock", "Paper", "Scissors"]
 player = False
 
 # make the computer pick one item at random
 computer = choices[randint(0, 2)]
 
-# show the commputer's choice in the terminal window
-print ("Computer chooses: ", computer)
-print("Computer wins", computer_wins)
-print("Player wins", player_wins)
+
+# define a win or lose function instead of the procedural way
+def winorlose(status):
+    # handle win or lose based on the status we pass in
+    print("Called the win or lose function")
+    print("***********************************")
+    print("You", status, "!", "Would you like to play again?")
+    choice = input("Y / N: ")
+
+    if choice == "Y" or choice == "y":
+        # reset the game
+        # change global variables
+        global player_lives
+        global computer_lives
+        global player
+        global computer
+
+        player_lives = 5
+        computer_lives = 5
+        player = False
+        computer = choices[randint(0, 2)]
+
+    elif choice == "N" or choice =="n":
+        print("You chose to Quit")
+        exit()
+
+# show the computer choice in the terminal_window
+# print("Computer chooses: ", computer)
 
 while player is False:
+    print("========================================")
+    print("Player Lives:", player_lives, "/5")
+    print("AI Lives:", computer_lives, "/5")
+    print("========================================")
     print("Choose your weapon!\n")
     player = input("Rock, Paper or Scissors?\n")
-    print("Player chooses:", player)
+    # print("Player chooses:", player)
 
-    # check to see if you picked the same thing
-    if (player == computer):
+    if player == "computer":
         print("Tie! Live to shoot another day")
-    # if each wins - plus one life to the score
-    # if each loses - minus one life from the score
+
     elif player == "Rock":
         if computer == "Paper":
-            print("You lose", computer, "covers", player)
-            computer_wins += 1
-            print("Computer lifes left", computer_wins)
-            player_wins -= 1
-            print("Your lifes left", player_wins)
+            player_lives -= 1
+            print("You lose", computer, "covers", player, "\n")
         else:
-            print("You win!", player, "smashes", computer)
-            player_wins += 1
-            print("Your lifes left", player_wins)
-            computer_wins -= 1
-            print("Computer lifes left", computer_wins)
+            print("You win!", player, "smashes", computer, "\n")
+            computer_lives -= 1
 
     elif player == "Paper":
         if computer == "Scissors":
-            print("You lose!", computer, "cuts", player)
-            computer_wins += 1
-            print("Computer lifes left", computer_wins)
-            player_wins -= 1
-            print("Your lifes left", player_wins)
+            player_lives -= 1
+            print("You lose!", computer, "cuts", player, "\n")
         else:
-            print("You win!", player, "covers", computer)
-            player_wins += 1
-            print("Your lifes left", player_wins)
-            computer_wins -= 1
-            print("Computer lifes left", computer_wins)
+            print("You win!", player, "covers", computer, "\n")
+            computer_lives -= 1
+
     elif player == "Scissors":
         if computer == "Rock":
-            print("You lose!", computer, "smashes", player)
-            computer_wins += 1
-            print("Computer lifes left", computer_wins)
-            player_wins -= 1
-            print("Your lifes left", player_wins)
+            player_lives -= 1
+            print("You lose!", computer, "smashes", player, "\n")
         else:
-            print("You win!", player, "cuts", computer)
-            player_wins += 1
-            print("Your lifes left", player_wins)
-            computer_wins -= 1
-            print("Computer lifes left", computer_wins)
+            print("You win!", player, "cuts", computer, "\n")
+            computer_lives -= 1
 
-    elif player == "Quit":
-        exit()
+    # handle win or lose
+    if player_lives is 0:
+        print("***************************")
+        print("You lost! Would you like to play again?")
+        choice = input("Y / N? ")
+        print(choice)
 
-    if player_wins == 0:
-        print("Game is over! Computer won")
-        exit()
+        if choice == "Y" or choice == "y":
+            # playing again, so reset lives etc
+            player_lives = 5
+            computer_lives = 5
+            player = False
+            computer = choices[randint(0, 2)]
+        if choice == "n" or choice == "N":
+            print("You Quit!")
+            print("************************")
+            exit()
 
-    if computer_wins == 0:
-        print("You WON!")
-        exit()
-player = False
-computer = choices[randint(0, 2)]
+    if computer_lives is 0:
+        print("***************************")
+        print("You won! Would you like to play again?")
+        choice = input("Y / N? ")
+        print(choice)
+
+        if choice == "Y" or choice == "y":
+            # playing again, so reset lives etc
+            player_lives = 5
+            computer_lives = 5
+            player = False
+            computer = choices[randint(0, 2)]
+        if choice == "n" or choice == "N":
+            print("You Quit!")
+            print("************************")
+            exit()
+
+    player = False
+    computer = choices[randint(0, 2)]
